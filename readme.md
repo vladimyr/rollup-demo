@@ -1,4 +1,4 @@
-## HOWTO
+## Instructions
 
 1. `npm install`
 2. `npm run watch` or `npm run build`
