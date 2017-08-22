@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup --config",
+    "watch": "rollup --config --watch -m"
+  },
+  "devDependencies": {
+    "rollup": "^0.48.2",
+    "rollup-plugin-buble": "^0.15.0",
+    "rollup-plugin-commonjs": "^8.2.0",
+    "rollup-plugin-node-resolve": "^3.0.0"
+  },
+  "dependencies": {
+    "redom": "^3.2.1"
+  }
+}
