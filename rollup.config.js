@@ -7,9 +7,9 @@ import resolve from 'rollup-plugin-node-resolve';
 
 // View https://rollupjs.org/#command-line-reference
 export default {
-  input: 'index.js', // main script name
+  input: 'src/js/index.js', // main script name
   output: {
-    file: 'app.js', // bundle name
+    file: 'dist/app.js', // bundle name
     format: 'iife' // wrap everything in IIFE
   },
   plugins: [
