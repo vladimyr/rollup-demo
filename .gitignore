@@ -8,3 +8,5 @@ style.css
 
 *.zip
 *.log
+
+.DS_Store
