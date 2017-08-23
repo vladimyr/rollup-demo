@@ -1,4 +1,10 @@
 node_modules
-app.*
+
+# build artifacts
+app.js
+style.css
+*.map
+*.min.*
+
 *.zip
 *.log

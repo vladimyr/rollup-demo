@@ -1,18 +1,27 @@
 {
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "minify": "uglifyjs -cm -- app.js > app.min.js",
-    "build": "rollup --config && npm run minify",
-    "watch": "rollup --config --watch -m"
+    "minify:js": "uglifyjs -cm -- app.js > app.min.js",
+    "minify:css": "cssnano style.css > style.min.css",
+    "minify": "npm run minify:js && npm run minify:css",
+    "build:js": "rollup --config",
+    "build:css": "sass style.scss > style.css",
+    "build": "npm run build:js && npm run build:css && npm run minify",
+    "watch:css": "chokidar **/*.scss -c 'npm run build:css'",
+    "watch:js": "rollup --config --watch -m",
+    "watch": "npm run watch:js & npm run watch:css"
   },
   "devDependencies": {
+    "chokidar-cli": "^1.2.0",
     "rollup": "^0.48.2",
     "rollup-plugin-buble": "^0.15.0",
     "rollup-plugin-commonjs": "^8.2.0",
     "rollup-plugin-node-resolve": "^3.0.0",
+    "sass": "^1.0.0-beta.2",
     "uglify-js": "^3.0.28"
   },
   "dependencies": {
+    "cssnano-cli": "^1.0.5",
     "redom": "^3.2.1"
   }
 }
