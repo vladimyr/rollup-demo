@@ -2,6 +2,8 @@ import { mount } from 'redom';
 import MessageBox from './message-box';
 import Heading from './heading';
 
+import '../scss/style.scss';
+
 init();
 
 function init() {

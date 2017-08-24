@@ -1,26 +1,24 @@
 {
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build:dev && npm run minify",
+    "build:dev": "rollup --config",
+    "watch": "rollup --config --watch -m",
+    "clean": "del dist/* !dist/.gitkeep",
     "minify:js": "uglifyjs -cm -- dist/app.js > dist/app.min.js",
     "minify:css": "cssnano dist/style.css > dist/style.min.css",
-    "minify": "npm run minify:js && npm run minify:css",
-    "build:js": "rollup --config",
-    "build:css": "sass src/scss/style.scss > dist/style.css",
-    "build": "npm run build:js && npm run build:css && npm run minify",
-    "watch:css": "chokidar src/scss/**/*.scss -c 'npm run build:css'",
-    "watch:js": "rollup --config --watch -m",
-    "watch": "npm run watch:js & npm run watch:css",
-    "clean": "del dist/* !dist/.gitkeep"
+    "minify": "npm run minify:js && npm run minify:css"
   },
   "devDependencies": {
-    "chokidar-cli": "^1.2.0",
+    "autoprefixer": "^7.1.2",
     "cssnano-cli": "^1.0.5",
     "del-cli": "^1.1.0",
+    "postcss": "^6.0.9",
     "rollup": "^0.48.2",
     "rollup-plugin-buble": "^0.15.0",
     "rollup-plugin-commonjs": "^8.2.0",
     "rollup-plugin-node-resolve": "^3.0.0",
-    "sass": "^1.0.0-beta.2",
+    "rollup-plugin-sass": "^0.5.3",
     "uglify-js": "^3.0.28"
   },
   "dependencies": {

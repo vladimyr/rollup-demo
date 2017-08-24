@@ -1,20 +1,28 @@
-// View https://buble.surge.sh
-import buble from 'rollup-plugin-buble'; // used for ES6+ to ES5 conversion
-
-// If you want to use modules from npm like redom...
-import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
+import buble from 'rollup-plugin-buble';
 
-// View https://rollupjs.org/#command-line-reference
+import sass from 'rollup-plugin-sass';
+import autorpefixer from 'autoprefixer';
+import postcss from 'postcss';
+
 export default {
-  input: 'src/js/index.js', // main script name
+  input: 'src/js/index.js',
   output: {
-    file: 'dist/app.js', // bundle name
-    format: 'iife' // wrap everything in IIFE
+    file: 'dist/app.js',
+    format: 'iife'
   },
   plugins: [
-    buble(),
     resolve(),
-    commonjs()
+    commonjs(),
+    sass({
+      output: 'dist/style.css',
+      processor(css) {
+        return postcss([autorpefixer])
+          .process(css)
+          .then(result => result.css);
+      }
+    }),
+    buble()
   ]
 };
